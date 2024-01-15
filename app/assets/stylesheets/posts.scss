@@ -1,0 +1,100 @@
+@import "bootstrap";
+
+.chart-area{/*円グラフがスマホでつぶれないようにする*/
+  position: relative;
+  width:100%;
+  height:50vh;
+}
+/*========= レイアウトのためのCSS ===============*/
+body{
+  background:rgb(151, 212, 122);
+}
+
+.navbar{
+  margin:30px 30px;
+}
+
+.navbar-brand{
+  margin: 0 auto;
+  color: #fff;
+}
+
+.all_box{
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+  max-width:600px;
+  width:90%;
+  padding: 20px;
+  margin-top: 30px;
+  background:#fff;
+  text-align: center;
+}
+
+.all_btn{
+  display: flex;
+}
+
+.btn{
+margin: 30px 0 ;
+justify-content: end;
+}
+
+.chart{
+  height:1px;
+}
+
+.second_box{
+  display: flex;
+}
+
+.post-date{
+  display: none;
+  font-size: 1px;
+}
+
+.lead{
+  padding: 20px;
+  text-align: center;
+}
+
+// --- newページのcss ---
+.big_box{
+  display: flex;
+  justify-content: center;
+}
+
+.new_box{
+  display: flex;
+  justify-content: center;
+}
+
+.all_box2{
+  display: flex;
+  justify-content: center;
+  width: 300px;
+}
+
+.post-date{
+  margin-left: 30px;
+}
+
+// --- 掃除のcss ---
+.second_box_clean{
+  // display: flex;
+}
+
+.post-date_clean{
+  display: none;
+  font-size: 1px;
+}
+
+.box_clean{
+  max-width:600px;
+  width:90%;
+  padding: 20px;
+  background:#fff;
+  text-align: center;
+}

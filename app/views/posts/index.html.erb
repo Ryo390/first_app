@@ -1,2 +1,29 @@
-<h1>Top page</h1>
-hello world
+<div class="all_box">
+<div class="box">
+  <h2>Total</h2>
+<div class="chart-area">
+  <canvas class="chart"></canvas>
+</div>
+  </div>
+
+</div>
+<div class ="all_btn">
+<%= link_to '新規入力', '/posts/new',class: "btn btn-danger btn-lg" %>
+</div>
+<% @posts.each do |post| %>
+<div class="second_box">
+<div class = "post_box">
+  <div class="post">
+    <div class="post-date">
+      <p ><strong>妻の割合:</strong> <span class="wife"><%= post.wife_percentage %></span> %</p>
+      <p ><strong>夫の割合:</strong> <span class="husband"><%= post.husband_percentage %></span> %</p>
+    </div>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
