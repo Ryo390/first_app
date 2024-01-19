@@ -1,21 +1,23 @@
-<%= form_with model: @post, local: true do |form| %>
+<%= form_with model: @post, local: true, id:"new_form" do |form| %>
   
 <%= form.label :wife_percentage, "妻の割合 (%)" %>
   <%= form.number_field :wife_percentage, step: 1, min: 0, max: 100, required: true %>
 <%= form.label :husband_percentage, "夫の割合 (%)" %>
   <%= form.number_field :husband_percentage, step: 1, min: 0, max: 100, required: true %>
+<%= form.collection_select(:housework_id, Housework.all, :id, :name, {}, {class:"housework-box", id:"housework-status"}) %> 
 
-  <%= form.submit 'する' %>
+  <%= form.submit '入力する' %>
 <% end %>
 <div class = "new_box">
-<%# --- 掃除グラフ --- %>
-<% @posts.each do |post| %>
+<%# --- 円グラフ --- %>
+<%@posts_all.each do |housework,posts|%>
+<% posts.each do |post| %>
   <div class="second_box">
     <div class = "post_box">
       <div class="post">
         <div class="post-date">
-        <p ><strong>妻の割合:</strong> <span class="wife"><%= post.wife_percentage %></span> %</p>
-        <p ><strong>夫の割合:</strong> <span class="husband"><%= post.husband_percentage %></span> %</p>
+        <p ><strong>妻の割合:</strong> <span class="wife <%=housework.classname%>"><%= post.wife_percentage %></span> %</p>
+        <p ><strong>夫の割合:</strong> <span class="husband <%=housework.classname%>"><%= post.husband_percentage %></span> %</p>
         </div>
       </div>
     </div>
@@ -23,34 +25,14 @@
 <% end %>
   <div class="all_box2">
     <div class="box">
-    <h2>掃除</h2>
+    <h2><%=housework.name%></h2>
       <div class="chart-area">
       <canvas id="chart" class="chart"></canvas>
       </div>
     </div>
   </div>
-<%# --- 料理グラフ --- %>
-<% @posts.each do |post| %>
-  <div class="second_box">
-    <div class = "post_box">
-      <div class="post">
-        <div class="post-date">
-        <p ><strong>妻の割合:</strong> <span class="wife"><%= post.wife_percentage %></span> %</p>
-        <p ><strong>夫の割合:</strong> <span class="husband"><%= post.husband_percentage %></span> %</p>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-  <div class="all_box2">
-    <div class="box">
-      <h2>料理</h2>
-      <div class="chart-area">
-        <canvas class="chart"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
+  <%end%>
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>

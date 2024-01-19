@@ -1,4 +1,4 @@
-<div class="all_box">
+<div class="all_box" id="index_all_box">
 <div class="box">
   <h2>Total</h2>
 <div class="chart-area">
@@ -8,8 +8,9 @@
 
 </div>
 <div class ="all_btn">
-<%= link_to '新規入力', '/posts/new',class: "btn btn-danger btn-lg" %>
+<%= link_to '家事一覧', '/posts/new',class: "btn btn-danger btn-lg" %>
 </div>
+<%# --- 円グラフ --- %>
 <% @posts.each do |post| %>
 <div class="second_box">
 <div class = "post_box">
